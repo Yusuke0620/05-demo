@@ -2,11 +2,8 @@ const loadingAreaGrey = document.getElementById('loading');
 const loadingAreaGreen = document.getElementById('loading-screen');
 const loadingText = document.querySelector('#loading p');
 
-
-
 //ロードが終わった時の処理
 window.addEventListener('load', () => {
-
 
     //loadedクラスを追加して背景色を透明にする    
     loadingAreaGrey.animate(
@@ -54,3 +51,21 @@ window.addEventListener('load', () => {
         }
     );
 });
+
+
+const mainImage = document.querySelector('.gallery-image img');
+const thumbImages = document.querySelectorAll('.gallery-thumbnails img');
+
+
+
+    thumbImages.forEach((thumbImage) => {
+        thumbImage.addEventListener('mouseover', (event) => {
+            mainImage.src = event.target.src;
+            console.log(thumbImage.src);
+            
+                       
+            mainImage.animate({opacity: [0, 1]}, 500); 
+        });
+    });
+
+   
